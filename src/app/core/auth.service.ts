@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthResponse} from '../shared/models/AuthResponse';
-import {Observable, tap} from 'rxjs';
+import {finalize, Observable, tap} from 'rxjs';
 import {ApiService} from './api.service';
+import {LoadingService} from './loading.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,10 @@ export class AuthService {
   private currentUser: string | null = null;
   private currentRole: UserRole | null = null;
 
-  constructor(private router: Router, private readonly api: ApiService) {}
+  constructor(private router: Router, private readonly api: ApiService, private readonly loading: LoadingService) {}
 
   login(username: string, password: string) {
+    this.loading.showHse();
     return this.api.login(username, password).pipe(
       tap((response: AuthResponse) => {
         const token = response.bearer;
@@ -22,10 +24,10 @@ export class AuthService {
         localStorage.setItem('pseudo',  payload.pseudo);
         localStorage.setItem('role', payload.role);
         localStorage.setItem('token', response.bearer);
-        console.log(localStorage);
         const redirect = payload.role === 'HSE' ? '/hse' : '/exploitant';
         this.router.navigate([redirect]);
-      })
+      }),
+      finalize(() => this.loading.hideHse())
     );
   }
 

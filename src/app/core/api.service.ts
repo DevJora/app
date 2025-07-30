@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://localhost:8080/api'; // adapte à ton backend
+  private baseUrl = 'https://api-m8ri.onrender.com/api'; // adapte à ton backend
 
   constructor(private http: HttpClient) {}
 
