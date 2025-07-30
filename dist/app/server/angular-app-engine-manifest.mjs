@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/app',
   supportedLocales: {
   "en-US": ""
 },
