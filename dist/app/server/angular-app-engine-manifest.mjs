@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/app',
+  basePath: 'https://devjora.github.io/app',
   supportedLocales: {
   "en-US": ""
 },
