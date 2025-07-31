@@ -1,3 +1,13 @@
 {
-  "routes": {}
+  "routes": {
+    "/app": {},
+    "/app/exploitant": {},
+    "/app/exploitant/home": {},
+    "/app/exploitant/view": {},
+    "/app/home": {},
+    "/app/hse": {},
+    "/app/hse/add": {},
+    "/app/hse/home": {},
+    "/app/login": {}
+  }
 }

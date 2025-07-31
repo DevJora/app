@@ -1,0 +1,13 @@
+{
+  "routes": {
+    "/": {},
+    "/exploitant": {},
+    "/exploitant/home": {},
+    "/exploitant/view": {},
+    "/home": {},
+    "/hse": {},
+    "/hse/add": {},
+    "/hse/home": {},
+    "/login": {}
+  }
+}
